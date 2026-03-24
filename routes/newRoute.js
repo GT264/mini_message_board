@@ -3,7 +3,7 @@ const Router = require("express");
 const newRoute = Router();
 
 newRoute.get("/", (req, res) => {
-    console.log('sono nella new')
+    res.render("form");
 });
 
 module.exports = newRoute;

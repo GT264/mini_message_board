@@ -16,7 +16,13 @@ const messages = [
 ];
 
 indexRoute.get("/", (req, res) => {
-    console.log('sono nella index')
+    res.render("index", {messages: messages, title: "Mini Messageboard"})
+});
+
+indexRoute.post("/new", (req, res) => {
+  const { message, user } = req.body;
+  messages.push({ text: message, user: user, added: new Date() });
+  res.redirect("/");
 });
 
 module.exports = indexRoute;
